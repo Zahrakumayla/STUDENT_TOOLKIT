@@ -1,6 +1,9 @@
-# ===== FITUR KE-3 MANAJEMEN WAKTU KULIAH =====
+# schedule_module.py
+from datetime import datetime
+
+class ScheduleFeature:
+    
     def schedule_menu(self):
-        """Menu Manajemen Waktu Kuliah"""
         while True:
             self.clear_screen()
             print("=" * 50)
@@ -30,7 +33,6 @@
                 break
     
     def add_schedule(self):
-        """Tambah jadwal kuliah"""
         self.clear_screen()
         print("=== TAMBAH JADWAL KULIAH ===")
         
@@ -55,7 +57,6 @@
         input("\nTekan Enter untuk lanjut...")
     
     def view_today_schedule(self):
-        """Lihat jadwal hari ini"""
         self.clear_screen()
         days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
         today = days[datetime.now().weekday()]
@@ -77,7 +78,6 @@
         input("Tekan Enter untuk lanjut...")
     
     def view_week_schedule(self):
-        """Lihat jadwal minggu ini"""
         self.clear_screen()
         print("=== JADWAL MINGGU INI ===\n")
         
@@ -96,7 +96,6 @@
         input("Tekan Enter untuk lanjut...")
     
     def view_all_schedules(self):
-        """Lihat semua jadwal"""
         self.clear_screen()
         print("=== SEMUA JADWAL KULIAH ===\n")
         
@@ -111,7 +110,6 @@
         input("Tekan Enter untuk lanjut...")
     
     def delete_schedule(self):
-        """Hapus jadwal"""
         if not self.schedules:
             print("\nBelum ada jadwal tersedia!")
             input("Tekan Enter untuk lanjut...")
