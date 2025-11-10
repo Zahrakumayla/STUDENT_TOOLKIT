@@ -1,7 +1,9 @@
-class TimerPomodoro:
+# pomodoro_module.py
+import time
 
+class PomodoroFeature:
+    
     def pomodoro_timer(self):
-        """Timer Pomodoro"""
         self.clear_screen()
         print("=" * 50)
         print("TIMER POMODORO")
@@ -19,7 +21,6 @@ class TimerPomodoro:
             return
         
         for cycle in range(1, cycles + 1):
-            # Work session
             self.clear_screen()
             print(f"=== SIKLUS {cycle}/{cycles} - WAKTU KERJA ===")
             print(f"Mulai bekerja selama {work_minutes} menit!")
@@ -28,7 +29,6 @@ class TimerPomodoro:
             try:
                 self.countdown_timer(work_minutes * 60, "KERJA")
                 
-                # Break session
                 self.clear_screen()
                 print(f"=== SIKLUS {cycle}/{cycles} - WAKTU ISTIRAHAT ===")
                 print(f"Istirahat selama {break_minutes} menit!")
@@ -46,7 +46,6 @@ class TimerPomodoro:
         input("\nTekan Enter untuk lanjut...")
     
     def countdown_timer(self, seconds, session_type):
-        """Countdown timer helper"""
         start_time = time.time()
         end_time = start_time + seconds
         
@@ -54,10 +53,9 @@ class TimerPomodoro:
             remaining = int(end_time - time.time())
             mins, secs = divmod(remaining, 60)
             
-            # Clear line and print timer
             print(f"\r{session_type}: {mins:02d}:{secs:02d} ", end='', flush=True)
             time.sleep(1)
         
         print(f"\n\n✓ Sesi {session_type} selesai!")
-        print("\a")  # Bell sound
+        print("\a")
         time.sleep(2)
